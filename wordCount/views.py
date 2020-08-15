@@ -6,6 +6,8 @@ def home(request):
 	return render(request, 'homepage.html')
 def welcome(request):
 	return HttpResponse("Hamaya")
+def about(request):
+	return render(request, 'about.html')
 def count(request):
 	fulltext = request.GET["fulltext"]
 	wordList = fulltext.split()
@@ -19,5 +21,3 @@ def count(request):
 	sortedName = sorted(wordDic.items(), key=operator.itemgetter(1), reverse=True)
 
 	return render(request,"count.html", {'fulltext':fulltext, 'count':len(wordList), 'sortedName':sortedName})
-def about(request):
-	return render(request, "about.html")
